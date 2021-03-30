@@ -9,16 +9,10 @@ export default {
   name: 'name',
 
   data() {
-    return {
-      aaa: '222'
-    }
+    return {}
   },
 
-  created() {
-    let aaaaa = '3333'
-
-    console.log(aaaaa)
-  }
+  created() {}
 }
 </script>
 
