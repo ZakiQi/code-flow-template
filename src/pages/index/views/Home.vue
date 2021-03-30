@@ -16,6 +16,10 @@ export default {
 
   created() {
     let aaaaa = "3333";
+
+
+
+    
     console.log(aaaaa)
   }
 }
