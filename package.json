@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "extendPackage": "vue-cli-service serve --copy"
+    "extendPackage": "vue-cli-service serve --copy",
+    "precommit": "webpack  --config ./web/webpack.config.js"
   },
   "husky": {
     "hooks": {
