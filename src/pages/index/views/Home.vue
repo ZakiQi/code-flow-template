@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-button>默认按钮</el-button>
+    <el-button type="primary">默认按钮</el-button>
   </div>
 </template>
 

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 // css reset
 import 'normalize.css'
+// import '../theme/index.css'
 
 import Store from './store'
 
 // 使用element-ui,按需引入
-import 'element-ui/lib/theme-chalk/index.css'
 import './element'
+import '../src/assets/sass/element-variables.scss'
 
 import 'xe-utils'
 import VXETable from 'vxe-table'

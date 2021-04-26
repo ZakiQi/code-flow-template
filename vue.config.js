@@ -3,7 +3,7 @@ const path = require('path')
 
 const VUE_APP_ALLOW_ENTRY = process.env.VUE_APP_ALLOW_ENTRY || ''
 // 多页面入口路径
-const resolve = folder => path.resolve(__dirname, folder)
+const resolve = (folder) => path.resolve(__dirname, folder)
 const PAGE_PATH = resolve('src/pages')
 
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
@@ -19,7 +19,7 @@ function addStyleResource(rule) {
     .use('style-resource')
     .loader('style-resources-loader')
     .options({
-      patterns: [resolve('./src/assets/less/var.less')]
+      patterns: [resolve('./src/assets/sass/var.less')]
     })
 }
 
@@ -30,7 +30,7 @@ function getPagesConfig(entry) {
   const pages = {}
   // 规范中定义每个单页文件结构
   // index.html,main.js,App.vue
-  glob.sync(`${PAGE_PATH}/*/main.js`).forEach(filePath => {
+  glob.sync(`${PAGE_PATH}/*/main.js`).forEach((filePath) => {
     const pageName = path.basename(path.dirname(filePath))
     if (entry && entry !== pageName) return
     pages[pageName] = {
@@ -91,13 +91,13 @@ module.exports = {
           },
           vue: {
             name: 'vue-common',
-            test: module => /vue|axios/g.test(module.context),
+            test: (module) => /vue|axios/g.test(module.context),
             chunks: 'initial',
             priority: 10
           },
           echarts: {
             name: 'echarts',
-            test: module => /echarts/g.test(module.context),
+            test: (module) => /echarts/g.test(module.context),
             chunks: 'initial',
             priority: 10
           }
@@ -114,7 +114,7 @@ module.exports = {
   }),
 
   // 扩展webpack配置
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     // 配置别名
     config.resolve.alias
       .set('@', resolve('src'))
@@ -128,7 +128,7 @@ module.exports = {
 
     // 添加 css 全局变量资源插件
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+    types.forEach((type) => addStyleResource(config.module.rule('less').oneOf(type)))
   },
 
   // 开发服务器配置
